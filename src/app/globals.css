@@ -1,0 +1,4 @@
+@import "tailwindcss";
+
+/* Global rules only. Per-project design tokens — colours, fonts, radii,
+   spacing scales — belong here once they are decided, not before. */
