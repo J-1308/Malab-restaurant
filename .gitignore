@@ -42,3 +42,6 @@ next-env.d.ts
 
 # claude code (keep .claude/skills, ignore per-machine state)
 .claude/settings.local.json
+
+# visual QA screenshots (npm run shots)
+/shots/

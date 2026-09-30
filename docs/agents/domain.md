@@ -4,7 +4,8 @@ How the engineering skills should consume this repo's domain documentation.
 
 ## Before exploring, read these
 
-- **`CONTEXT.md`** at the repo root
+- **`PROJECT.md`** at the repo root: the brief and scope
+- **`CONTEXT.md`** at the repo root: agreed vocabulary
 - **`docs/adr/`**: read any ADRs touching the area you are about to work in
 
 This repo is **single-context**: one root `CONTEXT.md`, one `docs/adr/`. There is no
@@ -19,11 +20,15 @@ creating it upfront; these get created lazily, when a term or decision is actual
 /
 ├── CLAUDE.md                        ← auto-loaded, minimal, routes to everything else
 ├── AGENTS.md                        ← Next.js agent rules (managed by `next dev`)
-├── CONTEXT.md                       ← domain context + glossary
+├── PROJECT.md                       ← brief, scope, decisions log
+├── DESIGN.md                        ← direction, tokens, imagery rules
+├── assets.csv                       ← asset register
+├── CONTEXT.md                       ← vocabulary + glossary
 ├── docs/
-│   ├── project/                     ← brief, open questions
+│   ├── project/                     ← open questions
 │   ├── agents/                      ← how agents work in this repo
 │   └── adr/                         ← accepted decisions
+├── scripts/shots.mjs                ← desktop + mobile screenshots
 └── src/app/
 ```
 
@@ -44,6 +49,7 @@ If output contradicts an existing ADR, surface it rather than silently overridin
 ## Don't invent facts
 
 While the project is in discovery, business facts, branding, offerings, site architecture and
-technical requirements are not yet established. Absence of a fact is information: leave a `TBD`,
+technical requirements are not yet established. Pitch mode relaxes this for visual direction only
+(marked `[Proposal]`), never for facts. Absence of a fact is information: leave a `TBD`,
 add a row to `docs/project/open-questions.md`, or open an issue. Do not fill gaps with plausible
 defaults.
