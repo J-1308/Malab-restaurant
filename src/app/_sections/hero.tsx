@@ -1,92 +1,60 @@
-import Image from "next/image";
-import { Actions } from "../_components/actions";
-import { HexMark } from "../_components/hex-mark";
+import { getImageProps } from "next/image";
+import Link from "next/link";
 import { place } from "../_lib/malab";
 
-const nav = [
-  { href: "#kitchen", label: "Kitchen" },
-  { href: "#room", label: "Room" },
-  { href: "#visit", label: "Visit" },
-];
-
+// Art direction: a wide crop on desktop, a tall one on phones.
+// A01: the wide crop still shows two soft drinks until the AI clean-up lands.
 export function Hero() {
+  const common = {
+    alt: "Bowls of sautéed meat with lemon and red onion, and a stack of pancakes, on a black marble table at Malab",
+    sizes: "100vw",
+    quality: 75,
+    fetchPriority: "high" as const,
+    loading: "eager" as const,
+  };
+  const {
+    props: { srcSet: desktop },
+  } = getImageProps({ ...common, src: "/media/hero-spread-wide.jpg", width: 1932, height: 1087 });
+  const {
+    props: { srcSet: mobile, ...rest },
+  } = getImageProps({ ...common, src: "/media/spread-portrait.jpg", width: 1040, height: 2196 });
+
   return (
-    <header className="relative isolate min-h-svh overflow-hidden lg:grid lg:grid-cols-12">
-      {/* Malab's own food. Full-bleed on phones; the right-hand panel on desktop. */}
-      <div className="absolute inset-0 -z-10 overflow-hidden lg:relative lg:inset-auto lg:z-0 lg:order-2 lg:col-span-5">
-        <Image
-          src="/media/spread-portrait.jpg"
-          alt="Bowls of sautéed meat with lemon and red onion, and a stack of pancakes, on a black marble table at Malab"
-          fill
-          preload
-          sizes="(min-width: 1024px) 42vw, 100vw"
-          className="drift object-cover object-[50%_40%]"
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgb(14_12_11/0.72)_0%,rgb(14_12_11/0)_18%,rgb(14_12_11/0)_36%,rgb(14_12_11/0.82)_54%,rgb(14_12_11/0.97)_68%,rgb(14_12_11)_80%)] lg:hidden" />
-        <div className="absolute inset-y-0 left-0 hidden w-px bg-brass/40 lg:block" />
-        <p className="label absolute right-6 bottom-6 hidden text-cream/85 [text-shadow:0_1px_12px_rgb(0_0_0/0.6)] lg:block">
-          Served at {place.street}
+    <section className="relative isolate flex min-h-[82svh] items-end overflow-hidden bg-ink lg:min-h-0 lg:items-center lg:justify-center lg:py-40">
+      <picture>
+        <source media="(min-width: 1024px)" srcSet={desktop} />
+        <source srcSet={mobile} />
+        {/* eslint-disable-next-line jsx-a11y/alt-text -- alt comes from getImageProps */}
+        <img {...rest} className="absolute inset-0 -z-10 h-full w-full object-cover object-[50%_40%]" />
+      </picture>
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,rgb(0_0_0/0.25),rgb(0_0_0/0.05)_35%,rgb(0_0_0/0.75)_78%)] lg:bg-[radial-gradient(ellipse_at_center,rgb(0_0_0/0.5),rgb(0_0_0/0.3)_70%)]" />
+
+      <div className="w-full gutter pb-24 text-white lg:max-w-4xl lg:pb-0 lg:text-center">
+        <p className="caps text-white/90">
+          {place.street} · {place.area}
         </p>
-      </div>
-
-      <div className="flex min-h-svh flex-col justify-between gutter pt-5 pb-7 lg:order-1 lg:col-span-7 lg:bg-[radial-gradient(ellipse_at_0%_100%,rgb(110_43_48/0.28),transparent_62%)] lg:pt-8 lg:pb-8">
-        <nav aria-label="Main" className="flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2.5">
-            <HexMark className="size-5 text-honey" />
-            <span className="label text-[0.8rem] tracking-[0.34em] text-cream">Malab</span>
+        <h1 className="mt-3 font-heading text-[clamp(3.4rem,15vw,7.5rem)] leading-[0.88] font-extrabold tracking-[0.01em] uppercase [text-shadow:0_2px_24px_rgb(0_0_0/0.35)]">
+          Somali food
+          <br className="lg:hidden" /> &amp; brunch
+        </h1>
+        <p className="mt-4 text-[1.1rem] text-white/90 lg:text-[1.25rem]">Open every day from {place.opens}</p>
+        <div className="mt-7 flex flex-wrap gap-3 lg:justify-center">
+          <Link
+            href="/menu"
+            className="rounded-full bg-white px-7 py-3.5 font-heading text-[1.05rem] font-bold tracking-[0.06em] text-maroon uppercase transition-colors hover:bg-card"
+          >
+            See the menu
+          </Link>
+          <a
+            href={place.mapsHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border-2 border-white/80 px-7 py-3 font-heading text-[1.05rem] font-bold tracking-[0.06em] text-white uppercase transition-colors hover:bg-white/10"
+          >
+            Directions
           </a>
-          <ul className="hidden items-center gap-9 lg:flex">
-            {nav.map((item) => (
-              <li key={item.href}>
-                <a href={item.href} className="label text-cream/80 transition-colors hover:text-cream">
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <p className="label text-cream/85 lg:hidden">Open from {place.opens}</p>
-        </nav>
-
-        <div className="pt-[42svh] lg:flex lg:flex-1 lg:flex-col lg:justify-end lg:pt-0 lg:pb-14">
-          <div>
-          <p className="label text-brass">
-            {place.cuisine} · {place.area}
-          </p>
-          <h1 className="mt-3 font-display text-[clamp(5.25rem,26vw,12rem)] leading-[0.8] tracking-[-0.025em] text-cream">
-            Malab
-          </h1>
-          <p className="mt-6 max-w-[30ch] text-pretty text-[1.15rem] leading-snug text-cream/90 lg:max-w-[30ch] lg:text-[1.6rem]">
-            Suqaar, slow-steamed lamb and brunch from {place.opens}, in a room of velvet and marble.
-          </p>
-          <Actions className="mt-7 lg:mt-10" />
-          <p className="mt-5 text-sm text-cream-dim">
-            <span className="text-brass">★ {place.rating.score}</span> on {place.rating.source} ·{" "}
-            {place.rating.count} reviews
-          </p>
-          </div>
         </div>
-
-        <dl className="hidden grid-cols-3 gap-8 border-t border-brass/30 pt-5 text-sm lg:grid">
-          <div>
-            <dt className="label text-brass">Find us</dt>
-            <dd className="mt-2 text-cream/85">
-              {place.street}, {place.postcode}
-            </dd>
-          </div>
-          <div>
-            <dt className="label text-brass">Open</dt>
-            <dd className="mt-2 text-cream/85">{place.hours}</dd>
-          </div>
-          <div>
-            <dt className="label text-brass">Call</dt>
-            <dd className="mt-2 text-cream/85">
-              <a href={place.phoneHref} className="hover:text-cream">
-                {place.phoneDisplay}
-              </a>
-            </dd>
-          </div>
-        </dl>
       </div>
-    </header>
+    </section>
   );
 }

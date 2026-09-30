@@ -1,21 +1,25 @@
+import { FloatingCall, NoticeBar, SiteHeader } from "./_components/site-header";
 import { Footer } from "./_sections/footer";
 import { Hero } from "./_sections/hero";
-import { Kitchen } from "./_sections/kitchen";
+import { Inside } from "./_sections/inside";
 import { Reviews } from "./_sections/reviews";
-import { Room } from "./_sections/room";
+import { Signatures } from "./_sections/signatures";
 import { Visit } from "./_sections/visit";
 
 export default function Home() {
   return (
     <>
-      <Hero />
+      <NoticeBar />
+      <SiteHeader />
       <main>
-        <Kitchen />
-        <Room />
+        <Hero />
+        <Signatures />
+        <Inside />
         <Reviews />
         <Visit />
       </main>
       <Footer />
+      <FloatingCall />
     </>
   );
 }

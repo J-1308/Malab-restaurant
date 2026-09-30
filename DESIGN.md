@@ -1,6 +1,6 @@
 # DESIGN.md — Malab
 
-**Status:** proposed [Proposal] — pitch direction, not owner-approved.
+**Status:** proposed [Proposal] — concept v2 (2026-09-30), modelled on Sabiib's site at the studio owner's request. Not owner-approved.
 
 The rules Claude Code builds from. Tokens live in `src/app/globals.css` (`@theme`).
 
@@ -26,46 +26,43 @@ From the Malab reference deck (Aug 2026).
 | Fallow | Dark plate photography under large serif type | Fine-dining restraint that would hide the room |
 | Ave Mario | A maximalist room treated as the draw | Theatrical overload; their Italian kitsch |
 
-## 3. Direction — "Honey, marble, velvet"
+## 3. Direction — "Sabiib-clean, Malab colours" (v2)
 
-Malab's room is its brand. The site takes its materials literally: near-black marble grounds,
-bands in the booths' emerald and plum, brass hairlines, and honey from the sign as the only bright
-colour, kept for actions. The restaurant's own food carries the page. Warm and generous, a little
-theatrical, never generic black-and-gold "luxury".
+v1 ("Honey, marble, velvet": dark grounds, Young Serif) was rejected by the studio owner on
+2026-09-30: no logo, weak font, images underused, no menu. v2 follows the reference he chose,
+Sabiib (sabiibrestaurant.com, a Somali restaurant on Popmenu): a light, menu-led site with photo
+"story" cards, bold condensed headings and dish cards with photos. Colours come from Malab's own
+logo (maroon and gold).
 
 Rules:
 
-1. **Food first.** The hero and the first section are Malab's own food. No stock, no generated
-   dishes, no dishes from anywhere else.
-2. **Honey is for actions.** `honey` fills the primary buttons and the small hex mark only.
-3. **Brass is a line.** `brass` for hairlines, small caps and numerals. Never a gradient or fill.
-4. **One ground per band, taken from the room.** Marble for hero, reviews and visit; emerald
-   velvet for the kitchen; plum velvet for the room.
-5. **Type.** Young Serif for headlines, big and tight. Outfit for everything else; labels in
-   Outfit capitals with wide tracking (the fascia's "SOMALI CUISINE" voice).
-6. **Mobile first.** Hero image fills the phone screen; the call button sits within thumb reach.
-7. **Motion is footage.** Real clips loop muted and inline, poster first. One slow drift on the
-   hero still. All motion stops under `prefers-reduced-motion`.
-8. **Copy is sourced.** Dish names and descriptions as published; review lines verbatim. No
-   claim we can't point to.
+1. **Food and menu first.** Hero banner of Malab's food, then photo cards, then the menu with photos.
+2. **Logo always visible.** Header badge and footer; favicon. Never redrawn (only a 100px file so far).
+3. **Maroon for actions and headings, gold for small accents.** White page, warm-grey cards.
+4. **Type.** Barlow Condensed 800 uppercase for headings and buttons; Barlow for text; small tracked
+   capitals for nav and labels.
+5. **Menu cards like the reference.** Square photo left, uppercase name, "price · description";
+   featured dishes on a card. Dishes without a photo go text-only rather than using a filler image.
+6. **One fixed "Call to book" pill** (the reference's "Reserve a table"), plus the header button.
+7. **Concept honesty.** A top bar says it's a concept and links to the before/after page.
+8. **Copy is sourced.** Dish names, descriptions and prices as published on their delivery listings
+   (to confirm); review lines verbatim.
 
-## 4. Tokens
+## 4. Tokens (v2)
 
 | Token | Value | Use |
 | --- | --- | --- |
-| `marble` | `#0E0C0B` | Main ground |
-| `marble-2` | `#191614` | Raised ground, cards on marble |
-| `cream` | `#F4ECDF` | Text on dark (plate white, warmed) |
-| `cream-dim` | `#BDB2A2` | Secondary text on dark |
-| `brass` | `#C9A063` | Hairlines, labels, numerals |
-| `honey` | `#E8A317` | Primary action fill, hex mark |
-| `emerald` | `#1D3A31` | Kitchen band (velvet booth, in shadow) |
-| `plum` | `#351421` | Room band (velvet chair, in shadow) |
-| `burgundy` | `#6E2B30` | Accents on plum (booth in light) |
+| `paper` | `#FFFFFF` | Page |
+| `card` | `#F5F0E9` | Featured dishes, alternate bands |
+| `line` | `#E6DDD2` | Rules |
+| `ink` | `#1E1715` | Text |
+| `muted` | `#6E645C` | Secondary text |
+| `maroon` | `#4B0E13` | Logo ground: headings, buttons, footer |
+| `maroon-2` | `#6E1C22` | Hover |
+| `gold` | `#C9A04E` | Logo gold: stars, small accents on dark |
+| `gold-deep` | `#8F6B24` | Gold for labels on white |
 
-Type: `font-display` Young Serif 400 · `font-sans` Outfit 300–600. Headline scale
-`clamp(3.5rem, 12vw, 9.5rem)` for the wordmark; section heads `clamp(2.25rem, 5vw, 4rem)`.
-Labels `0.72rem`, tracking `0.28em`, uppercase. Gutter `clamp(1.25rem, 4vw, 4rem)`.
+Type: `font-heading` Barlow Condensed 600/700/800 · `font-sans` Barlow 400/500/600, self-hosted (OFL).
 
 ## 5. Imagery
 
@@ -83,6 +80,7 @@ food, room and people** · L3 Composite · L4 Generative · L5 Synthetic · P Ph
 | --- | --- | --- | --- |
 | 1 | 2026-09-30 | First coded pass. Mobile: full-bleed spread photo, wordmark and call button over a marble fade. Desktop: 7/5 split, type on marble, photo right. | Mobile label lost over the pancakes; desktop left column empty above the type |
 | 2 | 2026-09-30 | Fade starts higher on mobile; desktop gets an address / hours / phone bar under a brass rule, type block anchored above it. | Passes the checklist at 1440 and 390. Remaining ceiling is the asset (drinks crop, 540p video), not the layout |
+| 3 | 2026-09-30 | **New direction (v2)** after studio-owner review: Sabiib-style light layout, logo, Barlow, story cards, menu with photos, /menu and /before-after pages. | Desktop hero still shows the two drinks until the AI clean-up of A01 comes back |
 
 Exit checklist, at **both 1440 and 390** (`npm run shots`):
 
@@ -101,6 +99,9 @@ Exit checklist, at **both 1440 and 390** (`npm run shots`):
 - Carousels, sound, pop-ups, emoji.
 
 ## 8. Rejected
+
+- v1 direction "Honey, marble, velvet" (dark grounds, Young Serif + Outfit): no logo, weak type,
+  images underused, no menu. Kept in git history (commit 721f5f5).
 
 - Automated removal of the drinks from A01 (OpenCV Telea): smeared the booth and table edge.
   Cropped instead (L2) until a proper L1 edit is done.

@@ -1,57 +1,54 @@
 @import "tailwindcss";
 
-/* Tokens mirror DESIGN.md §4. */
+/* Tokens mirror DESIGN.md §4. Colours sampled from the Malab logo. */
 @theme inline {
-  --font-display: var(--font-young-serif), Georgia, "Times New Roman", serif;
-  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-barlow-condensed), "Arial Narrow", sans-serif;
+  --font-sans: var(--font-barlow), ui-sans-serif, system-ui, sans-serif;
 }
 
 @theme {
-  --color-marble: #0e0c0b;
-  --color-marble-2: #191614;
-  --color-cream: #f4ecdf;
-  --color-cream-dim: #bdb2a2;
-  --color-brass: #c9a063;
-  --color-honey: #e8a317;
-  --color-emerald: #1d3a31;
-  --color-plum: #351421;
-  --color-burgundy: #6e2b30;
+  --color-paper: #ffffff;
+  --color-card: #f5f0e9;
+  --color-line: #e6ddd2;
+  --color-ink: #1e1715;
+  --color-muted: #6e645c;
+  --color-maroon: #4b0e13;
+  --color-maroon-2: #6e1c22;
+  --color-gold: #c9a04e;
+  --color-gold-deep: #8f6b24;
 }
 
 :root {
-  color-scheme: dark;
-  --gutter: clamp(1.25rem, 4vw, 4rem);
+  --gutter: clamp(1.25rem, 4vw, 3rem);
 }
 
 html {
-  background: var(--color-marble);
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
-  background: var(--color-marble);
-  color: var(--color-cream);
+  background: var(--color-paper);
+  color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: var(--color-honey);
-  color: var(--color-marble);
+  background: var(--color-gold);
+  color: var(--color-ink);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-honey);
+  outline: 2px solid var(--color-gold);
   outline-offset: 3px;
 }
 
-/* Small tracked capitals: the fascia's "SOMALI CUISINE" voice. */
-@utility label {
-  font-size: 0.72rem;
-  line-height: 1.4;
+/* Small tracked capitals for nav and labels. */
+@utility caps {
+  font-size: 0.8rem;
   font-weight: 500;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
@@ -59,26 +56,15 @@ body {
   padding-inline: var(--gutter);
 }
 
-/* One slow drift on the hero still (DESIGN.md rule 7). Never gates first paint. */
-@keyframes drift {
-  from {
-    transform: scale(1.02);
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
   }
-  to {
-    transform: scale(1.08) translate3d(0, -1.2%, 0);
-  }
-}
-
-.drift {
-  animation: drift 28s ease-in-out infinite alternate;
-  transform-origin: 50% 40%;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-  .drift {
-    animation: none;
   }
 }

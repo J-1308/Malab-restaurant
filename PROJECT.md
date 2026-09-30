@@ -35,7 +35,8 @@ The operational brief. When a fact changes, change it here first.
   Google's hours until confirmed.
 - **Price level:** ££ [Public: Google]
 - **Brand marks:** honeycomb logo with a fork and dripping honey; gold and white lettering on black
-  [Observed: fascia]. No vector logo supplied (Q5).
+  [Observed: fascia]. Logo supplied as a 100×100 PNG (maroon square, gold fork, honeycomb, knife,
+  "MALAB") [Client]; a vector file is still needed (Q5).
 - **Meaning of "Malab":** honey in Somali. Fits the logo, but **not confirmed by the owner**, so
   it is not on the site (Q4).
 
@@ -89,7 +90,9 @@ site** until the owner confirms in-house prices (delivery prices often differ).
 
 ## 7. Pages and scope
 
-**Pitch (this branch):** one page — hero, kitchen, room, reviews, visit, footer.
+**Concept (this branch):** homepage (hero, photo cards, signatures, inside, reviews, visit), `/menu`
+(full menu from the delivery listings) and `/before-after` (pitch-only: photo and video edits).
+The concept shows delivery-listing prices so the owner can correct them; they are not for launch.
 
 **Foundation build [Proposal]:** homepage, menu page (from the owner's in-house menu), contact and
 map, Google Business Profile tidy-up, one on-site food shoot (menu dishes, 45° and top-down,
@@ -112,3 +115,4 @@ TBD: Google Business Profile link, Google Maps, Just Eat link, booking partner, 
 | --- | --- | --- |
 | 2026-09-30 | Pitch branch `hero-v1` started from Website Starter v1.1 | Studio |
 | 2026-09-30 | Direction "Honey, marble, velvet" proposed; Somali food leads the hero | Studio |
+| 2026-09-30 | Owner is a friend of the studio; pitch will be informal. Concept v2 built on the Sabiib reference with his logo, a menu and a before/after page | Studio |

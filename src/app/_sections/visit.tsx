@@ -1,62 +1,62 @@
 import Image from "next/image";
-import { Actions } from "../_components/actions";
 import { place } from "../_lib/malab";
 
 export function Visit() {
   return (
-    <section id="visit" aria-labelledby="visit-title" className="bg-marble-2">
-      <div className="grid items-center gap-12 gutter py-20 lg:grid-cols-12 lg:gap-8 lg:py-28">
-        <figure className="lg:col-span-5">
-          <div className="relative aspect-[1080/1400] w-full max-w-[30rem] overflow-hidden">
-            <Image
-              src="/media/shopfront.jpg"
-              alt="Malab's shopfront on Uxbridge Road: a black fascia reading Malab Somali Cuisine above glass doors, next to door number 157"
-              fill
-              sizes="(min-width: 1024px) 30rem, 100vw"
-              className="object-cover"
-            />
-          </div>
-        </figure>
-
-        <div className="lg:col-span-6 lg:col-start-7">
-          <p className="label text-brass">Visit</p>
+    <section id="visit" aria-labelledby="visit-title" className="bg-card">
+      <div className="mx-auto grid max-w-6xl items-center gap-10 gutter py-16 lg:grid-cols-2 lg:gap-16 lg:px-0 lg:py-24">
+        <div className="relative aspect-[4/5] w-full max-w-[28rem] overflow-hidden rounded-2xl">
+          <Image
+            src="/media/shopfront.jpg"
+            alt="Malab's shopfront on Uxbridge Road: a black fascia reading Malab Somali Cuisine above glass doors, next to door number 157"
+            fill
+            sizes="(min-width: 1024px) 28rem, 100vw"
+            className="object-cover"
+          />
+        </div>
+        <div>
+          <p className="caps text-gold-deep">Visit</p>
           <h2
             id="visit-title"
-            className="mt-4 font-display text-[clamp(2.6rem,6vw,4.5rem)] leading-[0.95] tracking-[-0.01em]"
+            className="mt-3 font-heading text-[clamp(2.4rem,5vw,3.6rem)] leading-[0.95] font-extrabold text-maroon uppercase"
           >
             {place.street}
           </h2>
-          <p className="mt-3 text-lg text-cream/85">
+          <p className="mt-2 text-[1.1rem] text-ink/80">
             {place.area}, {place.city} {place.postcode}
           </p>
-
-          <dl className="mt-10 grid gap-6 border-t border-brass/30 pt-8 sm:grid-cols-2">
+          <dl className="mt-8 grid gap-6 border-t border-line pt-6 sm:grid-cols-2">
             <div>
-              <dt className="label text-brass">Open</dt>
-              <dd className="mt-2 text-lg">{place.hours}</dd>
+              <dt className="caps text-[0.72rem] text-muted">Open</dt>
+              <dd className="mt-1 text-[1.1rem] font-medium">{place.hours}</dd>
             </div>
             <div>
-              <dt className="label text-brass">Call</dt>
-              <dd className="mt-2 text-lg">
-                <a href={place.phoneHref} className="hover:text-honey">
+              <dt className="caps text-[0.72rem] text-muted">Call</dt>
+              <dd className="mt-1 text-[1.1rem] font-medium">
+                <a href={place.phoneHref} className="hover:text-maroon">
                   {place.phoneDisplay}
                 </a>
               </dd>
             </div>
           </dl>
-
-          <Actions className="mt-10" />
-          <p className="mt-6 text-sm text-cream-dim">
-            Collection orders:{" "}
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href={place.mapsHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full bg-maroon px-7 py-3.5 font-heading text-[1.05rem] font-bold tracking-[0.06em] text-white uppercase transition-colors hover:bg-maroon-2"
+            >
+              Get directions
+            </a>
             <a
               href={place.justEatHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="underline decoration-cream/30 underline-offset-4 hover:decoration-cream"
+              className="rounded-full border-2 border-maroon px-7 py-3 font-heading text-[1.05rem] font-bold tracking-[0.06em] text-maroon uppercase transition-colors hover:bg-maroon hover:text-white"
             >
-              Just Eat
+              Order collection
             </a>
-          </p>
+          </div>
         </div>
       </div>
     </section>

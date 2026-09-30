@@ -1,18 +1,40 @@
-import { HexMark } from "../_components/hex-mark";
+import Image from "next/image";
+import Link from "next/link";
 import { place } from "../_lib/malab";
 
 export function Footer() {
   return (
-    <footer className="border-t border-brass/20 bg-marble">
-      <div className="flex flex-col gap-6 gutter py-10 text-sm text-cream-dim md:flex-row md:items-center md:justify-between">
-        <div className="flex items-center gap-2.5">
-          <HexMark className="size-4 text-honey" />
-          <span className="label tracking-[0.34em] text-cream">Malab</span>
+    <footer className="bg-maroon text-white/85">
+      <div className="mx-auto flex max-w-6xl flex-col gap-8 gutter py-12 pb-28 sm:flex-row sm:items-start sm:justify-between lg:px-0">
+        <Image src="/media/logo.png" alt="Malab" width={72} height={72} className="size-[4.5rem] rounded-xl" />
+        <div className="text-[0.98rem] leading-relaxed">
+          <p className="caps text-[0.72rem] text-gold">Find us</p>
+          <p className="mt-2">
+            {place.street}
+            <br />
+            {place.area}, {place.city} {place.postcode}
+          </p>
         </div>
-        <p>
-          {place.cuisine} · {place.street}, {place.city} {place.postcode} · {place.phoneDisplay}
-        </p>
-        <p className="label text-cream-dim/70">Concept preview</p>
+        <div className="text-[0.98rem] leading-relaxed">
+          <p className="caps text-[0.72rem] text-gold">Open</p>
+          <p className="mt-2">{place.hours}</p>
+          <p className="mt-1">
+            <a href={place.phoneHref} className="hover:text-white">
+              {place.phoneDisplay}
+            </a>
+          </p>
+        </div>
+        <div className="text-[0.98rem] leading-relaxed">
+          <p className="caps text-[0.72rem] text-gold">Explore</p>
+          <p className="mt-2 flex flex-col gap-1">
+            <Link href="/menu" className="hover:text-white">
+              Menu
+            </Link>
+            <a href={place.justEatHref} target="_blank" rel="noopener noreferrer" className="hover:text-white">
+              Order collection
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );
