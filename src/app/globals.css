@@ -1,4 +1,84 @@
 @import "tailwindcss";
 
-/* Global rules only. Per-project design tokens — colours, fonts, radii,
-   spacing scales — belong here once they are decided, not before. */
+/* Tokens mirror DESIGN.md §4. */
+@theme inline {
+  --font-display: var(--font-young-serif), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+}
+
+@theme {
+  --color-marble: #0e0c0b;
+  --color-marble-2: #191614;
+  --color-cream: #f4ecdf;
+  --color-cream-dim: #bdb2a2;
+  --color-brass: #c9a063;
+  --color-honey: #e8a317;
+  --color-emerald: #1d3a31;
+  --color-plum: #351421;
+  --color-burgundy: #6e2b30;
+}
+
+:root {
+  color-scheme: dark;
+  --gutter: clamp(1.25rem, 4vw, 4rem);
+}
+
+html {
+  background: var(--color-marble);
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-marble);
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-honey);
+  color: var(--color-marble);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-honey);
+  outline-offset: 3px;
+}
+
+/* Small tracked capitals: the fascia's "SOMALI CUISINE" voice. */
+@utility label {
+  font-size: 0.72rem;
+  line-height: 1.4;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+@utility gutter {
+  padding-inline: var(--gutter);
+}
+
+/* One slow drift on the hero still (DESIGN.md rule 7). Never gates first paint. */
+@keyframes drift {
+  from {
+    transform: scale(1.02);
+  }
+  to {
+    transform: scale(1.08) translate3d(0, -1.2%, 0);
+  }
+}
+
+.drift {
+  animation: drift 28s ease-in-out infinite alternate;
+  transform-origin: 50% 40%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .drift {
+    animation: none;
+  }
+}
