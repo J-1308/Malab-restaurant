@@ -53,15 +53,4 @@ export function SiteHeader({ current }: { current?: "menu" }) {
   );
 }
 
-// Floating action, after the reference site's "Reserve a table" pill.
-export function FloatingCall() {
-  return (
-    <a
-      href={place.phoneHref}
-      className="fixed right-4 bottom-4 z-50 inline-flex items-center gap-2.5 rounded-full bg-maroon px-5 py-3.5 font-heading text-[1.02rem] font-bold tracking-[0.06em] text-white uppercase shadow-[0_10px_30px_-8px_rgb(75_14_19/0.6)] transition-colors hover:bg-maroon-2 sm:right-6 sm:bottom-6"
-    >
-      <PhoneIcon className="size-[1.1rem]" />
-      Call to book
-    </a>
-  );
-}
+export { FloatingCall } from "./floating-call";

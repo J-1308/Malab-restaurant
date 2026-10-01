@@ -1,12 +1,15 @@
 import { LoopVideo } from "../_components/loop-video";
-import { place } from "../_lib/malab";
+import { place, somali } from "../_lib/malab";
 
 export function Inside() {
   return (
     <section id="inside" aria-labelledby="inside-title" className="bg-card">
       <div className="mx-auto grid max-w-6xl items-center gap-10 gutter py-16 lg:grid-cols-2 lg:gap-16 lg:px-0 lg:py-24">
         <div>
-          <p className="caps text-gold-deep">Inside Malab</p>
+          <p className="text-gold-deep">
+            <span className="font-serif text-[1.15rem]">{somali.tea.so}</span>
+            <span className="caps ml-2 text-[0.72rem]">· {somali.tea.en}</span>
+          </p>
           <h2
             id="inside-title"
             className="mt-3 font-heading text-[clamp(2.4rem,5vw,3.6rem)] leading-[0.95] font-extrabold text-maroon uppercase"

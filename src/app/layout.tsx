@@ -23,6 +23,13 @@ const barlow = localFont({
   display: "swap",
 });
 
+const cinzel = localFont({
+  src: "./fonts/cinzel-500.woff2",
+  weight: "500",
+  variable: "--font-cinzel",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Malab · Somali food & brunch in West Ealing",
   description:
@@ -37,7 +44,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-GB" className={`${barlowCondensed.variable} ${barlow.variable}`}>
+    <html lang="en-GB" className={`${barlowCondensed.variable} ${barlow.variable} ${cinzel.variable}`}>
       <body>{children}</body>
     </html>
   );

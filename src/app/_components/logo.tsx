@@ -82,3 +82,16 @@ export function LogoLockup({ className = "" }: { className?: string }) {
     </span>
   );
 }
+
+/** Large gold wordmark for the hero. */
+export function Wordmark({ className = "", title = "Malab" }: { className?: string; title?: string }) {
+  const id = useId();
+  return (
+    <svg viewBox={`0 -72 ${WORD_WIDTH} 74`} role="img" aria-label={title} className={className}>
+      <defs>
+        <Gold id={id} />
+      </defs>
+      <path d={WORD} fill={`url(#${id})`} />
+    </svg>
+  );
+}

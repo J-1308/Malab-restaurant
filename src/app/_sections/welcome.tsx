@@ -11,17 +11,17 @@ export function Welcome() {
   return (
     <section aria-labelledby="welcome-title" className="gutter pt-14 lg:pt-20">
       <div className="mx-auto max-w-4xl border-2 border-maroon/70 bg-card px-6 py-10 text-center sm:px-12 lg:py-14">
-        <p className="caps text-gold-deep">Welcome to Malab</p>
+        <p className="caps text-gold-deep">On {place.road}</p>
         <h2
           id="welcome-title"
           className="mt-3 font-heading text-[clamp(2.3rem,6vw,3.8rem)] leading-[0.95] font-extrabold text-maroon uppercase"
         >
-          Malab is Somali for honey
+          Somali food, the generous way
         </h2>
         <p className="mx-auto mt-5 max-w-[56ch] text-[1.1rem] leading-relaxed text-ink/80">
-          On {place.road} in {place.area}, we serve Somali food the generous way: slow-steamed lamb
-          hanid, beef suqaar, sambus and platters made for sharing, alongside brunch from {place.opens},
-          burgers, mojitos and desserts. Find a velvet booth, bring the family and stay a while.
+          Slow-steamed lamb hanid, beef suqaar, sambus and platters made for sharing, alongside brunch
+          from {place.opens}, burgers, mojitos and desserts. Find a velvet booth in {place.area}, bring
+          the family and stay a while. Portions are big; nobody leaves hungry.
         </p>
         <dl className="mt-9 grid gap-5 border-t border-maroon/20 pt-7 sm:grid-cols-3">
           {facts.map((f) => (

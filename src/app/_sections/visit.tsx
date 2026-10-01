@@ -5,12 +5,12 @@ export function Visit() {
   return (
     <section id="visit" aria-labelledby="visit-title" className="bg-card">
       <div className="mx-auto grid max-w-6xl items-center gap-10 gutter py-16 lg:grid-cols-2 lg:gap-16 lg:px-0 lg:py-24">
-        <div className="relative aspect-[4/5] w-full max-w-[28rem] overflow-hidden rounded-2xl">
+        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl">
           <Image
-            src="/media/shopfront.jpg"
-            alt="Malab's shopfront on Uxbridge Road: a black fascia reading Malab Somali Cuisine above glass doors, next to door number 157"
+            src="/media/hero-shopfront.jpg"
+            alt="Malab's shopfront on Uxbridge Road in the evening: the lit MALAB Somali Cuisine sign above the dining room, next to door number 157"
             fill
-            sizes="(min-width: 1024px) 28rem, 100vw"
+            sizes="(min-width: 1024px) 34rem, 100vw"
             className="object-cover"
           />
         </div>

@@ -4,6 +4,7 @@
 @theme inline {
   --font-heading: var(--font-barlow-condensed), "Arial Narrow", sans-serif;
   --font-sans: var(--font-barlow), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-cinzel), "Times New Roman", serif;
 }
 
 @theme {
@@ -63,8 +64,47 @@ body {
   }
 }
 
+/* Hero slideshow: slide 1 sits underneath; slides 2-4 fade in over it in turn (24 s cycle). */
+@keyframes hero-fade {
+  0% {
+    opacity: 0;
+  }
+  5%,
+  25% {
+    opacity: 1;
+  }
+  30%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes hero-drift {
+  from {
+    transform: scale(1.02);
+  }
+  to {
+    transform: scale(1.09);
+  }
+}
+
+.hero-slide {
+  animation: hero-fade 24s ease-in-out infinite both;
+}
+
+.hero-drift {
+  animation: hero-drift 14s ease-in-out infinite alternate;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  .hero-slide {
+    animation: none;
+    opacity: 0;
+  }
+  .hero-drift {
+    animation: none;
   }
 }

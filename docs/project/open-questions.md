@@ -18,3 +18,4 @@ Ask these at the pitch visit. Q1–Q5 block launch; the rest shape the full buil
 | Q9 | In-house menu and prices (photo of the printed menu is fine)? Brunch set details? Desserts? | Menu page; dishes to feature |
 | Q10 | Original file of the table-spread video (IMG_7288) — ours is only 540p | Could become the mobile hero video |
 | Q11 | Best time for a 1–2 hour food shoot, with 6–8 dishes plated as served? | The £300 shoot add-on |
+| Q12 | Do the Somali lines read right? "Ku soo dhawoow" (welcome to), "malab" (honey), "Shaah iyo sheeko" (tea and a chat), "Mahadsanid" (thank you). Any phrase he'd rather use? | Hero, Inside section and footer use them |

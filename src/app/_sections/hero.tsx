@@ -1,42 +1,71 @@
 import Image from "next/image";
 import Link from "next/link";
-import { place } from "../_lib/malab";
+import { StarIcon } from "../_components/icons";
+import { Wordmark } from "../_components/logo";
+import { heroSlides, place, somali } from "../_lib/malab";
 
-// Temporary hero (assets.csv A13): AI-relit evening shot of the real shopfront.
+// Welcome in Somali, the name's meaning, and the food (brunch with honey first).
 export function Hero() {
   return (
-    <section className="relative isolate flex min-h-[70svh] items-end justify-center overflow-hidden bg-ink lg:min-h-[78svh]">
-      <Image
-        src="/media/hero-shopfront.jpg"
-        alt="Malab's shopfront on Uxbridge Road at dusk, the gold MALAB Somali Cuisine sign lit above a glowing dining room"
-        fill
-        preload
-        sizes="100vw"
-        className="-z-10 object-cover object-[36%_30%] lg:object-[50%_22%]"
-      />
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,rgb(0_0_0/0.15),rgb(0_0_0/0.1)_35%,rgb(0_0_0/0.72)_80%)]" />
+    <section className="relative isolate overflow-hidden bg-maroon lg:grid lg:min-h-[82svh] lg:grid-cols-[minmax(0,46fr)_minmax(0,54fr)]">
+      {/* Food slideshow: full-bleed behind the text on phones, right-hand panel on desktop */}
+      <div className="absolute inset-0 -z-10 overflow-hidden lg:relative lg:inset-auto lg:z-0 lg:order-2">
+        {heroSlides.map((slide, i) => (
+          <figure
+            key={slide.image}
+            className={`absolute inset-0 m-0 ${i === 0 ? "" : "hero-slide"}`}
+            style={i === 0 ? undefined : { animationDelay: `${i * 6}s` }}
+          >
+            <Image
+              src={slide.image}
+              alt={slide.caption}
+              fill
+              preload={i === 0}
+              sizes="(min-width: 1024px) 54vw, 100vw"
+              className="hero-drift object-cover"
+              style={{ objectPosition: slide.position }}
+            />
+            <figcaption className="caps absolute right-5 bottom-5 hidden rounded-full bg-black/45 px-3.5 py-1.5 text-[0.7rem] text-white backdrop-blur-sm lg:block">
+              {slide.caption}
+            </figcaption>
+          </figure>
+        ))}
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgb(75_14_19/0.3),rgb(75_14_19/0.02)_22%,rgb(75_14_19/0.88)_46%,rgb(75_14_19)_60%)] lg:hidden" />
+      </div>
 
-      <div className="max-w-4xl gutter pt-20 pb-12 text-center text-white lg:pb-16">
-        <h1 className="font-heading text-[clamp(2rem,7vw,3.9rem)] leading-[1.08] font-bold tracking-[0.14em] uppercase [text-shadow:0_2px_18px_rgb(0_0_0/0.45)]">
-          Somali food &amp; brunch in West Ealing
+      {/* Words */}
+      <div className="flex min-h-[86svh] flex-col items-center justify-end gutter pt-24 pb-10 text-center text-white lg:order-1 lg:min-h-0 lg:justify-center lg:bg-[radial-gradient(ellipse_at_30%_40%,rgb(201_160_78/0.16),transparent_60%)] lg:py-20">
+        <p className="font-serif text-[1.35rem] text-gold lg:text-[1.6rem]">{somali.welcome.so}</p>
+        <p className="mt-1 font-serif text-[0.95rem] tracking-[0.18em] text-white/85 uppercase">
+          <span className="text-gold">–</span> {somali.welcome.en} <span className="text-gold">–</span>
+        </p>
+        <h1 className="mt-5">
+          <Wordmark className="mx-auto h-[clamp(3.6rem,15vw,6.4rem)] w-auto" />
         </h1>
-        <p className="mt-4 text-[1.1rem] text-white/90 lg:text-[1.25rem]">
-          Open every day from {place.opens} on {place.road}
+        <p className="mt-4 font-serif text-[0.95rem] text-white/80">
+          <span className="text-gold">{somali.honey.so}</span> · n. · {somali.honey.en}
+        </p>
+        <p className="mt-6 max-w-[32ch] text-[1.15rem] leading-snug text-white/90 lg:text-[1.35rem]">
+          Somali food, brunch and desserts, made generously on {place.road}, {place.area}.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <a
-            href={place.phoneHref}
-            className="rounded-md bg-white px-7 py-3.5 text-[1.05rem] font-medium text-ink transition-colors hover:bg-card"
-          >
-            Call to book a table
-          </a>
           <Link
             href="/menu"
-            className="rounded-md border-2 border-white/85 px-7 py-3 text-[1.05rem] font-medium text-white transition-colors hover:bg-white/10"
+            className="rounded-md bg-gold px-7 py-3.5 font-heading text-[1.1rem] font-bold tracking-[0.08em] text-ink uppercase transition-colors hover:bg-[#d8b066]"
           >
             See the menu
           </Link>
+          <a
+            href={place.phoneHref}
+            className="rounded-md border-2 border-white/80 px-7 py-3 font-heading text-[1.1rem] font-bold tracking-[0.08em] text-white uppercase transition-colors hover:bg-white/10"
+          >
+            Call to book
+          </a>
         </div>
+        <p className="mt-6 hidden items-center gap-2 text-sm text-white/80 sm:flex">
+          <StarIcon className="size-4 text-gold" />
+          {place.rating.score} on {place.rating.source} · Open daily from {place.opens}
+        </p>
       </div>
     </section>
   );

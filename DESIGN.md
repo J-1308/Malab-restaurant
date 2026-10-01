@@ -82,7 +82,8 @@ food, room and people** · L3 Composite · L4 Generative · L5 Synthetic · P Ph
 | 1 | 2026-09-30 | First coded pass. Mobile: full-bleed spread photo, wordmark and call button over a marble fade. Desktop: 7/5 split, type on marble, photo right. | Mobile label lost over the pancakes; desktop left column empty above the type |
 | 2 | 2026-09-30 | Fade starts higher on mobile; desktop gets an address / hours / phone bar under a brass rule, type block anchored above it. | Passes the checklist at 1440 and 390. Remaining ceiling is the asset (drinks crop, 540p video), not the layout |
 | 3 | 2026-09-30 | **New direction (v2)** after studio-owner review: Sabiib-style light layout, logo, Barlow, story cards, menu with photos, /menu and /before-after pages. | Desktop hero still shows the two drinks until the AI clean-up of A01 comes back |
-| 4 | 2026-10-01 | Temporary AI shopfront hero (Sabiib's homepage uses its shopfront), spaced-caps headline below the sign; welcome box; menu photos from the studio owner's AI edits; full-width photos on phones like the reference; vector logo lockup | Owner to see next |
+| 4 | 2026-10-01 | Temporary AI shopfront hero (Sabiib's homepage uses its shopfront), spaced-caps headline below the sign; welcome box; menu photos from the studio owner's AI edits; full-width photos on phones like the reference; vector logo lockup | Superseded by #5 |
+| 5 | 2026-10-01 | "Honey" hero, after the Damal reference (damalrestaurant.uk): Somali welcome "Ku soo dhawoow", gold MALAB wordmark, dictionary line "malab · n. · honey, in Somali", food slideshow led by the brunch with its jar of honey; maroon panel; shopfront moved to Visit. Floating call appears after scrolling | Studio owner to review |
 
 Exit checklist, at **both 1440 and 390** (`npm run shots`):
 

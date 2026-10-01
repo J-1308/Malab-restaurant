@@ -235,6 +235,22 @@ export const cards = [
   { label: "Berry Mojito", image: img("berry-mojito"), position: "60% 50%" },
 ] as const;
 
+// Somali words used on the site, with translations. Have the owner check spelling and tone (Q12).
+export const somali = {
+  welcome: { so: "Ku soo dhawoow", en: "Welcome to" },
+  honey: { so: "malab", en: "honey, in Somali" },
+  tea: { so: "Shaah iyo sheeko", en: "Tea and a chat" },
+  thanks: { so: "Mahadsanid", en: "Thank you for visiting" },
+} as const;
+
+// Hero slideshow: the first slide is the LCP image and stays visible without motion.
+export const heroSlides = [
+  { image: img("brunch"), caption: "Brunch, served with a jar of honey", position: "50% 55%" },
+  { image: img("suqaar"), caption: "Beef Suqaar", position: "45% 50%" },
+  { image: img("pasta"), caption: "Somali Pasta", position: "50% 50%" },
+  { image: img("burger-meal"), caption: "Burger Meal", position: "62% 50%" },
+] as const;
+
 // Verbatim excerpts from public Google reviews. Owner to approve use (Q8).
 export const reviews = [
   "The lamb shank was full of flavour and falling off the bone.",
