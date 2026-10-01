@@ -61,7 +61,7 @@ Rules:
 | `maroon` | `#4B0E13` | Logo ground: headings, buttons, footer |
 | `maroon-2` | `#6E1C22` | Hover |
 | `gold` | `#C9A04E` | Logo gold: stars, small accents on dark |
-| `gold-deep` | `#8F6B24` | Gold for labels on white |
+| `gold-deep` | `#7C5C1D` | Gold for labels on white |
 
 Type: `font-heading` Barlow Condensed 600/700/800 · `font-sans` Barlow 400/500/600, self-hosted (OFL).
 

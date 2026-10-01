@@ -24,7 +24,7 @@ export function SiteHeader({ current }: { current?: "menu" }) {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-white/95 backdrop-blur">
       <div className="mx-auto flex h-[4.5rem] max-w-[90rem] items-center justify-between gap-6 gutter">
-        <Link href="/" aria-label="Malab home" className="shrink-0">
+        <Link href="/" aria-label="Malab, Somali cuisine: home" className="shrink-0">
           <LogoLockup />
         </Link>
         <nav aria-label="Main" className="flex items-center gap-4 sm:gap-9">

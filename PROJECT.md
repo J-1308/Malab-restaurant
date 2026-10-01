@@ -118,6 +118,7 @@ TBD: Google Business Profile link, Google Maps, Just Eat link, booking partner, 
 | --- | --- | --- |
 | 2026-09-30 | Pitch branch `hero-v1` started from Website Starter v1.1 | Studio |
 | 2026-09-30 | Direction "Honey, marble, velvet" proposed; Somali food leads the hero | Studio |
+| 2026-10-01 | QA pass (step 8): no console errors or 404s, no horizontal scroll at 390/1440. Lighthouse mobile: home performance 83–86, menu 91; accessibility 100 and best practices 100 on all pages; SEO 63 only because the concept is noindex | Studio |
 | 2026-10-01 | Hero changed to the "honey" welcome with Somali words (owner to check the Somali, Q12); shopfront moved to Visit | Studio |
 | 2026-10-01 | Concept v3: studio owner's AI-edited menu photos; Brunch and Burger Meal featured; temporary AI shopfront hero; richer draft copy (Sabiib-style); logo redrawn as vectors | Studio |
 | 2026-09-30 | Owner is a friend of the studio; pitch will be informal. Concept v2 built on the Sabiib reference with his logo, a menu and a before/after page | Studio |

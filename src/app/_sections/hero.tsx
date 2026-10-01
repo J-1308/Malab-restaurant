@@ -1,8 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import { StarIcon } from "../_components/icons";
+import { HeroSlides } from "../_components/hero-slides";
 import { Wordmark } from "../_components/logo";
-import { heroSlides, place, somali } from "../_lib/malab";
+import { place, somali } from "../_lib/malab";
 
 // Welcome in Somali, the name's meaning, and the food (brunch with honey first).
 export function Hero() {
@@ -10,26 +10,7 @@ export function Hero() {
     <section className="relative isolate overflow-hidden bg-maroon lg:grid lg:min-h-[82svh] lg:grid-cols-[minmax(0,46fr)_minmax(0,54fr)]">
       {/* Food slideshow: full-bleed behind the text on phones, right-hand panel on desktop */}
       <div className="absolute inset-0 -z-10 overflow-hidden lg:relative lg:inset-auto lg:z-0 lg:order-2">
-        {heroSlides.map((slide, i) => (
-          <figure
-            key={slide.image}
-            className={`absolute inset-0 m-0 ${i === 0 ? "" : "hero-slide"}`}
-            style={i === 0 ? undefined : { animationDelay: `${i * 6}s` }}
-          >
-            <Image
-              src={slide.image}
-              alt={slide.caption}
-              fill
-              preload={i === 0}
-              sizes="(min-width: 1024px) 54vw, 100vw"
-              className="hero-drift object-cover"
-              style={{ objectPosition: slide.position }}
-            />
-            <figcaption className="caps absolute right-5 bottom-5 hidden rounded-full bg-black/45 px-3.5 py-1.5 text-[0.7rem] text-white backdrop-blur-sm lg:block">
-              {slide.caption}
-            </figcaption>
-          </figure>
-        ))}
+        <HeroSlides />
         <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgb(75_14_19/0.3),rgb(75_14_19/0.02)_22%,rgb(75_14_19/0.88)_46%,rgb(75_14_19)_60%)] lg:hidden" />
       </div>
 

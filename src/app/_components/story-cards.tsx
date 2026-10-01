@@ -12,7 +12,7 @@ export function StoryCards() {
         >
           <Image
             src={card.image}
-            alt={card.label}
+            alt=""
             fill
             sizes="(min-width: 1024px) 14vw, 40vw"
             className="object-cover transition-transform duration-500 hover:scale-[1.04]"
