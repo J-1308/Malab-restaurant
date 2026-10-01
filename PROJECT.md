@@ -93,6 +93,9 @@ site** until the owner confirms in-house prices (delivery prices often differ).
 **Concept (this branch):** homepage (hero, photo cards, signatures, inside, reviews, visit), `/menu`
 (full menu from the delivery listings) and `/before-after` (pitch-only: photo and video edits).
 The concept shows delivery-listing prices so the owner can correct them; they are not for launch.
+All copy is a draft for the owner to approve. Working names to confirm: Brunch, Burger Meal, Somali Pasta,
+Blue Mojito, Berry Mojito, Family Platter. "Malab is Somali for honey" is a language fact; whether that is
+why he chose the name is still Q4.
 
 **Foundation build [Proposal]:** homepage, menu page (from the owner's in-house menu), contact and
 map, Google Business Profile tidy-up, one on-site food shoot (menu dishes, 45° and top-down,
@@ -115,4 +118,5 @@ TBD: Google Business Profile link, Google Maps, Just Eat link, booking partner, 
 | --- | --- | --- |
 | 2026-09-30 | Pitch branch `hero-v1` started from Website Starter v1.1 | Studio |
 | 2026-09-30 | Direction "Honey, marble, velvet" proposed; Somali food leads the hero | Studio |
+| 2026-10-01 | Concept v3: studio owner's AI-edited menu photos; Brunch and Burger Meal featured; temporary AI shopfront hero; richer draft copy (Sabiib-style); logo redrawn as vectors | Studio |
 | 2026-09-30 | Owner is a friend of the studio; pitch will be informal. Concept v2 built on the Sabiib reference with his logo, a menu and a before/after page | Studio |

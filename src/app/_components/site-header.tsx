@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { place } from "../_lib/malab";
 import { PhoneIcon } from "./icons";
+import { LogoLockup } from "./logo";
 
 const nav = [
   { href: "/menu", label: "Menu" },
@@ -25,16 +25,9 @@ export function SiteHeader({ current }: { current?: "menu" }) {
     <header className="sticky top-0 z-40 border-b border-line bg-white/95 backdrop-blur">
       <div className="mx-auto flex h-[4.5rem] max-w-[90rem] items-center justify-between gap-6 gutter">
         <Link href="/" aria-label="Malab home" className="shrink-0">
-          <Image
-            src="/media/logo.png"
-            alt="Malab"
-            width={52}
-            height={52}
-            className="size-[3.1rem] rounded-[10px]"
-            preload
-          />
+          <LogoLockup />
         </Link>
-        <nav aria-label="Main" className="flex items-center gap-5 sm:gap-9">
+        <nav aria-label="Main" className="flex items-center gap-4 sm:gap-9">
           {nav.map((item) => (
             <Link
               key={item.href}
@@ -46,9 +39,6 @@ export function SiteHeader({ current }: { current?: "menu" }) {
               {item.label}
             </Link>
           ))}
-          <Link href="/menu" className="caps text-ink/85 sm:hidden">
-            Menu
-          </Link>
           <a
             href={place.phoneHref}
             className="inline-flex items-center gap-2 rounded-full bg-maroon px-4 py-2.5 font-heading text-[0.95rem] font-bold tracking-[0.06em] text-white uppercase transition-colors hover:bg-maroon-2 sm:px-5"

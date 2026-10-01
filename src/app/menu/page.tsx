@@ -18,7 +18,7 @@ export default function MenuPage() {
       <main>
         <section className="relative isolate flex h-[34svh] min-h-64 items-center justify-center overflow-hidden lg:h-[46svh]">
           <Image
-            src="/media/menu-banner.jpg"
+            src="/media/menu/suqaar.jpg"
             alt=""
             fill
             preload
@@ -39,8 +39,8 @@ export default function MenuPage() {
           <nav aria-label="Menu sections" className="no-scrollbar -mx-[var(--gutter)] flex gap-2 overflow-x-auto gutter lg:mx-0 lg:flex-wrap lg:px-0">
             {menu.map((c) => (
               <a
-                key={c.title}
-                href={`#${c.title.toLowerCase()}`}
+                key={c.id}
+                href={`#${c.id}`}
                 className="shrink-0 rounded-full border border-line px-4 py-2 font-heading text-[1rem] font-semibold tracking-[0.04em] uppercase transition-colors hover:border-maroon hover:text-maroon"
               >
                 {c.title}
@@ -48,7 +48,7 @@ export default function MenuPage() {
             ))}
           </nav>
           {menu.map((c) => (
-            <MenuCategoryBlock key={c.title} category={c} />
+            <MenuCategoryBlock key={c.id} category={c} />
           ))}
           <p className="mt-12 text-sm text-muted">
             Allergies? Please ask before you order. Call {place.phoneDisplay}.

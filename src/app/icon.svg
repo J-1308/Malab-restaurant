@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7E09A"/><stop offset=".55" stop-color="#D9AC55"/><stop offset="1" stop-color="#B9862F"/></linearGradient></defs>
+<rect width="64" height="64" rx="13" fill="#4B0E13"/>
+<g transform="translate(4 3.5) scale(0.875)">
+ <path d="M32.00 44.20 L19.70 37.10 L19.70 22.90 L32.00 15.80 L44.30 22.90 L44.30 37.10 Z" fill="none" stroke="url(#g)" stroke-width="2.2" stroke-linejoin="round"/>
+ <g fill="url(#g)"><path d="M32.00 33.75 L28.75 31.88 L28.75 28.12 L32.00 26.25 L35.25 28.12 L35.25 31.88 Z"/><path d="M39.71 33.75 L36.46 31.88 L36.46 28.12 L39.71 26.25 L42.96 28.12 L42.96 31.88 Z"/><path d="M24.29 33.75 L21.04 31.88 L21.04 28.12 L24.29 26.25 L27.54 28.12 L27.54 31.88 Z"/><path d="M35.85 40.42 L32.61 38.55 L32.61 34.80 L35.85 32.92 L39.10 34.80 L39.10 38.55 Z"/><path d="M28.15 40.42 L24.90 38.55 L24.90 34.80 L28.15 32.92 L31.39 34.80 L31.39 38.55 Z"/><path d="M35.85 27.07 L32.61 25.20 L32.61 21.45 L35.85 19.57 L39.10 21.45 L39.10 25.20 Z"/><path d="M28.15 27.07 L24.90 25.20 L24.90 21.45 L28.15 19.57 L31.39 21.45 L31.39 25.20 Z"/></g>
+ <path d="M7.6 13 L7.6 22.5 M9.9 13 L9.9 22.5 M12.2 13 L12.2 22.5 M14.5 13 L14.5 22.5" fill="none" stroke="url(#g)" stroke-width="1.5" stroke-linecap="round"/>
+ <path d="M6.9 21.6 L15.2 21.6 C15.2 25.6 13.9 27.6 12.6 28.4 L12.6 47.6 Q12.6 49 11.05 49 Q9.5 49 9.5 47.6 L9.5 28.4 C8.2 27.6 6.9 25.6 6.9 21.6 Z" fill="url(#g)"/>
+ <path d="M52.4 12.8 C56.4 14.6 57.6 21.4 57.2 28.6 L54 28.6 L54 47.6 Q54 49 52.45 49 Q50.9 49 50.9 47.6 L50.9 14.2 Q50.9 12.4 52.4 12.8 Z" fill="url(#g)"/>
+</g>
+</svg>

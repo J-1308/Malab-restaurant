@@ -14,8 +14,9 @@ export function Inside() {
             Velvet booths, marble tables
           </h2>
           <p className="mt-5 max-w-[42ch] text-[1.1rem] leading-relaxed text-ink/80">
-            Emerald and plum velvet, brass-edged marble and a crystal chandelier on {place.road}.
-            Come for breakfast, stay for dinner.
+            Emerald and plum velvet, brass-edged marble and a crystal chandelier over it all. Come in
+            for brunch with friends, a platter with the family, or a mojito and dessert after dinner on{" "}
+            {place.road}.
           </p>
         </div>
         <div className="mx-auto w-full max-w-[24rem] overflow-hidden rounded-2xl shadow-[0_20px_40px_-24px_rgb(30_23_21/0.6)] lg:mx-0 lg:justify-self-end">

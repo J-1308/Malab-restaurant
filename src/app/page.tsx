@@ -5,6 +5,7 @@ import { Inside } from "./_sections/inside";
 import { Reviews } from "./_sections/reviews";
 import { Signatures } from "./_sections/signatures";
 import { Visit } from "./_sections/visit";
+import { Welcome } from "./_sections/welcome";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <SiteHeader />
       <main>
         <Hero />
+        <Welcome />
         <Signatures />
         <Inside />
         <Reviews />

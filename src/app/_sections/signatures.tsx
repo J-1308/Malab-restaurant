@@ -26,7 +26,8 @@ export function Signatures() {
 
         <div className="px-4 py-10 sm:px-8 lg:py-12">
           <MenuHeading>Signatures</MenuHeading>
-          <div className="mt-6 grid items-start gap-x-10 gap-y-3 lg:grid-cols-2">
+          <p className="mt-3 text-muted">The plates our guests come back for.</p>
+          <div className="mt-6 grid items-start gap-x-10 gap-y-6 lg:grid-cols-2 lg:gap-y-3">
             {signatures.map((dish) => (
               <MenuItem key={dish.name} dish={dish} />
             ))}

@@ -1,5 +1,7 @@
 // Every fact on the page comes from here. Sources are recorded in PROJECT.md.
 // Concept build: nothing below is owner-confirmed yet (docs/project/open-questions.md).
+// Copy is a draft for the owner to approve; dish names, descriptions and prices marked
+// "to confirm" in assets.csv / PROJECT.md.
 
 export const place = {
   name: "Malab",
@@ -28,64 +30,118 @@ export type Dish = {
   price?: string;
   description?: string;
   image?: string;
-  badge?: "Featured" | "Most liked";
+  imagePosition?: string;
+  badge?: "Featured" | "Most liked" | "Guest favourite";
 };
 
-export type MenuCategory = { title: string; dishes: Dish[]; compact?: boolean };
+export type MenuCategory = { id: string; title: string; intro?: string; dishes: Dish[]; compact?: boolean };
 
-// Dish names and descriptions as published on Malab's Uber Eats and Just Eat listings.
-// Platter description is from the supplied video ([Observed]), not a listing.
+// Photos: the studio's AI-edited versions of Malab's own dishes (assets.csv A12).
+const img = (name: string) => `/media/menu/${name}.jpg`;
+
 const dish = {
+  brunch: {
+    name: "Brunch",
+    badge: "Featured",
+    description:
+      "Scrambled eggs on toast, two sausages, a crisp hash brown, grilled tomato, beans and fresh berries, finished with a little jar of honey. From 8am, every day.",
+    image: img("brunch"),
+    imagePosition: "50% 60%",
+  },
+  burgerMeal: {
+    name: "Burger Meal",
+    badge: "Featured",
+    description:
+      "A grilled chicken burger stacked with melted cheese, tomato, red onion, crisp lettuce and creamy sauce in a soft toasted bun, with our spiced fries and a drink.",
+    image: img("burger-meal"),
+  },
   hanid: {
     name: "Lamb Hanid",
     note: "Lamb shank",
     price: "£14.99",
-    description: "Traditional slow-steamed lamb shank cooked with tomatoes and herbs.",
-    badge: "Featured",
+    badge: "Guest favourite",
+    description:
+      "A whole lamb shank, slow-steamed with tomatoes and herbs until it falls off the bone. The dish our reviews talk about most.",
   },
   suqaar: {
     name: "Beef Suqaar",
     price: "£12.99",
-    description: "Cubes of beef sautéed with onions and mixed peppers.",
-    image: "/media/dish-suqaar.jpg",
+    description:
+      "A Somali classic: tender cubes of beef sautéed with onions and mixed peppers, served with fresh lemon and a zesty tomato salsa.",
+    image: img("suqaar"),
+  },
+  pasta: {
+    name: "Somali Pasta",
+    description:
+      "Spaghetti tossed in a rich, spiced tomato and meat sauce, finished with fresh herbs and grated cheese. Somali comfort food.",
+    image: img("pasta"),
   },
   sweetSour: {
     name: "Sweet and Sour Chicken",
     price: "£15.99",
+    badge: "Most liked",
     description:
       "Tender chicken cubes in a tangy sweet and sour sauce with pineapple, mango chutney and ginger.",
-    badge: "Most liked",
   },
   platter: {
-    name: "Family platter",
-    description: "Rice and pasta topped with meat, made for sharing.",
-    image: "/media/dish-platter.jpg",
+    name: "Family Platter",
+    description:
+      "Rice and pasta piled high and topped with meat, made for the middle of the table. Ask us about sizes for your group.",
+  },
+  sambus: {
+    name: "Sambus",
+    price: "£5.99",
+    description: "Golden pastry parcels filled with spiced meat or fish. Three to a portion, made for sharing.",
   },
   soor: {
     name: "Soor",
     note: "Corn maize",
     price: "£3.99",
-    description: "Served with creamy spinach sauce.",
+    description: "Soft corn maize, a Somali staple, served with a creamy spinach sauce.",
   },
-  sambus: {
-    name: "Sambus",
-    price: "£5.99",
-    description: "Meat or fish, 3 per portion.",
+  pancakes: {
+    name: "Pancakes",
+    description:
+      "Golden pancakes topped with caramelised banana, a scoop of vanilla ice cream, berries and a dusting of cinnamon, in a warm caramel sauce.",
+    image: img("pancakes"),
+  },
+  dateCake: {
+    name: "Date Cake",
+    description: "Rich and sticky, somewhere near a sticky toffee pudding, and a favourite in our reviews.",
+  },
+  blueMojito: {
+    name: "Blue Mojito",
+    description: "Fresh lime, mint and crushed ice with a bright blue twist.",
+    image: img("blue-mojito"),
+    imagePosition: "50% 45%",
+  },
+  berryMojito: {
+    name: "Berry Mojito",
+    description: "Muddled berries, fresh lime and mint over crushed ice.",
+    image: img("berry-mojito"),
+    imagePosition: "50% 45%",
   },
 } satisfies Record<string, Dish>;
 
 export const signatures: Dish[] = [
-  dish.hanid,
+  dish.brunch,
+  dish.burgerMeal,
   dish.suqaar,
-  dish.sweetSour,
-  dish.platter,
-  dish.sambus,
-  dish.soor,
+  dish.pasta,
+  dish.hanid,
+  dish.pancakes,
 ];
 
 export const menu: MenuCategory[] = [
   {
-    title: "Starters",
+    id: "brunch",
+    title: "Brunch",
+    intro: "Served from 8am, every day.",
+    dishes: [dish.brunch],
+  },
+  {
+    id: "small-plates",
+    title: "Small Plates",
     dishes: [
       dish.sambus,
       { name: "Sweet and Sour Chicken Wings", note: "6 pieces", price: "£7.99" },
@@ -94,21 +150,18 @@ export const menu: MenuCategory[] = [
     ],
   },
   {
-    title: "Meat",
+    id: "mains",
+    title: "Mains",
     dishes: [
       dish.hanid,
       dish.suqaar,
+      dish.pasta,
+      dish.sweetSour,
       {
         name: "Beef Steak",
         price: "£12.99",
-        description: "Pan-fried marinated beef with onions and peppers.",
+        description: "Marinated beef, pan-fried with onions and peppers.",
       },
-    ],
-  },
-  {
-    title: "Chicken",
-    dishes: [
-      dish.sweetSour,
       {
         name: "Chicken Parmesan",
         price: "£14.99",
@@ -124,23 +177,38 @@ export const menu: MenuCategory[] = [
         price: "£14.99",
         description: "Homemade pancake filled with marinated chicken and melted cheese.",
       },
-    ],
-  },
-  {
-    title: "Fish",
-    dishes: [
       { name: "Salmon", price: "£14.99" },
       { name: "Pan-Fried Sea Bass", price: "£13.99" },
     ],
   },
-  { title: "Platters", dishes: [dish.platter] },
+  { id: "burgers", title: "Burgers", dishes: [dish.burgerMeal] },
   {
+    id: "platters",
+    title: "Platters",
+    intro: "Made to share. Bring the family.",
+    dishes: [dish.platter],
+  },
+  { id: "desserts", title: "Desserts", dishes: [dish.pancakes, dish.dateCake] },
+  {
+    id: "drinks",
+    title: "Drinks",
+    dishes: [
+      dish.blueMojito,
+      dish.berryMojito,
+      { name: "Milkshakes" },
+      { name: "Smoothies" },
+      { name: "Fresh Juices" },
+      { name: "Hot Drinks" },
+    ],
+  },
+  {
+    id: "sides",
     title: "Sides",
     compact: true,
     dishes: [
       { name: "Rice", price: "£3.99" },
       { name: "Pasta", price: "£3.99" },
-      dish.soor,
+      { name: "Soor", price: "£3.99", description: "With creamy spinach sauce" },
       { name: "Chapati", price: "£1.99" },
       { name: "Chips", price: "£2.99" },
       { name: "Mash Potato", price: "£3.99" },
@@ -149,31 +217,22 @@ export const menu: MenuCategory[] = [
     ],
   },
   {
+    id: "kids",
     title: "Kids",
     compact: true,
-    dishes: [{ name: "Chicken Burger", price: "£5.99", description: "Served with fries and drink." }],
-  },
-  {
-    title: "Drinks",
-    compact: true,
-    dishes: [
-      { name: "Mojitos" },
-      { name: "Smoothies" },
-      { name: "Milkshakes" },
-      { name: "Fresh juices" },
-      { name: "Hot drinks" },
-    ],
+    dishes: [{ name: "Chicken Burger", price: "£5.99", description: "With fries and a drink" }],
   },
 ];
 
-// Tall "story" cards. Labels are categories we can see in the footage, not dish claims.
+// Tall "story" cards, like the reference site.
 export const cards = [
-  { label: "Suqaar", image: "/media/card-suqaar.jpg" },
-  { label: "Breakfast", image: "/media/card-brunch.jpg" },
-  { label: "Sharing platters", image: "/media/card-platter.jpg" },
-  { label: "Burgers", image: "/media/card-burger.jpg" },
-  { label: "Desserts", image: "/media/card-dessert.jpg" },
-  { label: "Mojitos", image: "/media/card-mojito.jpg" },
+  { label: "Brunch", image: img("brunch"), position: "50% 55%" },
+  { label: "Beef Suqaar", image: img("suqaar"), position: "45% 50%" },
+  { label: "Somali Pasta", image: img("pasta-portrait"), position: "50% 50%" },
+  { label: "Burgers", image: img("chicken-burger"), position: "50% 55%" },
+  { label: "Pancakes", image: img("pancakes"), position: "48% 50%" },
+  { label: "Blue Mojito", image: img("blue-mojito"), position: "55% 50%" },
+  { label: "Berry Mojito", image: img("berry-mojito"), position: "60% 50%" },
 ] as const;
 
 // Verbatim excerpts from public Google reviews. Owner to approve use (Q8).

@@ -25,6 +25,10 @@ export function Visit() {
           <p className="mt-2 text-[1.1rem] text-ink/80">
             {place.area}, {place.city} {place.postcode}
           </p>
+          <p className="mt-5 max-w-[46ch] text-[1.05rem] leading-relaxed text-ink/80">
+            Breakfast, lunch and dinner, seven days a week. Coming as a big group? Call ahead and
+            we&rsquo;ll have a table ready.
+          </p>
           <dl className="mt-8 grid gap-6 border-t border-line pt-6 sm:grid-cols-2">
             <div>
               <dt className="caps text-[0.72rem] text-muted">Open</dt>

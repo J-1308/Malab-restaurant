@@ -5,7 +5,8 @@ export function Reviews() {
   return (
     <section aria-labelledby="reviews-title" className="gutter py-16 lg:py-24">
       <div className="mx-auto max-w-6xl">
-        <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+        <p className="caps text-gold-deep">What our guests say</p>
+        <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2">
           <p id="reviews-title" className="font-heading text-[4.5rem] leading-none font-extrabold text-maroon">
             {place.rating.score}
           </p>

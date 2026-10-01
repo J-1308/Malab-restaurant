@@ -1,12 +1,12 @@
-import Image from "next/image";
 import Link from "next/link";
+import { LogoBadge } from "../_components/logo";
 import { place } from "../_lib/malab";
 
 export function Footer() {
   return (
     <footer className="bg-maroon text-white/85">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 gutter py-12 pb-28 sm:flex-row sm:items-start sm:justify-between lg:px-0">
-        <Image src="/media/logo.png" alt="Malab" width={72} height={72} className="size-[4.5rem] rounded-xl" />
+        <LogoBadge className="size-24 shrink-0" />
         <div className="text-[0.98rem] leading-relaxed">
           <p className="caps text-[0.72rem] text-gold">Find us</p>
           <p className="mt-2">
